@@ -75,3 +75,11 @@ composer install --ignore-platform-reqs
 
 ## Your Notes
 This is a place for you to add your notes, plans, thinking and any feedback you have for us of the task, please feel free to include whatever you like here, we'll make sure to read it. 
+
+## Adam's Notes
+- Full transparency, it had been some time since I had last used Laravel before attempting this project (my current employer uses native PHP) so I'm more than likely a little rusty!
+- I had some errors when trying to host this project using Docker (I will send a screenshot via email). This meant that I was unable to access it via a browser, or make any API requests. I also was unable to access the front-end in anyway. Therefore, unfortunately I wasn't able to test my code and as a result there may be errors with it. I decided to still attempt the project regardless, as I thought I could at least show some of my working.
+- I will send an email containing a few screenshots relative to my attempt.
+- Due to the errors found while trying to host the project, I was unable to attempt certain parts (such as unit testing or authentication).
+- Thank you very much for allowing me to attempt this test once I got home from my travels. I would have struggled even more had I attempted this test with an outdated laptop propped against a book in a Thai cafe!
+- Thank you for giving me the opportunity to sit this test in the first place!
