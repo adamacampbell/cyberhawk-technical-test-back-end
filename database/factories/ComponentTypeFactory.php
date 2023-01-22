@@ -16,8 +16,15 @@ class ComponentTypeFactory extends Factory
      */
     public function definition()
     {
+        $name = $this->faker->randomElement([
+            'Blade', 
+            'Rotor', 
+            'Hub',
+            'Generator'
+        ]);
+
         return [
-            //
+            'name' => $name
         ];
     }
 }

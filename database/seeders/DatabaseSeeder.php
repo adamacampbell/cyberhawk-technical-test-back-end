@@ -21,5 +21,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        //* FIXED FIELDS *//
+        $this->call(GradeTypeSeeder::class);
+        $this->call(ComponentTypeSeeder::class);
+
+        //* DYNAMIC FIELDS *//
+        $this->call(FarmSeeder::class);
     }
 }

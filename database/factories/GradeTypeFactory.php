@@ -16,8 +16,10 @@ class GradeTypeFactory extends Factory
      */
     public function definition()
     {
+        $name = rand(1,5);
+
         return [
-            //
+            'name' => $name
         ];
     }
 }
