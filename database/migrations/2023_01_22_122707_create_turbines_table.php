@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('turbines', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->unsignedBigInteger('farm_id');
             $table->foreign('farm_id')->references('id')->on('farms')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');

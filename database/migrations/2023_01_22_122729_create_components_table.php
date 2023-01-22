@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('components', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('component_type_id');
             $table->foreign('component_type_id')->references('id')->on('component_types')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+            $table->unsignedBigInteger('turbine_id');
             $table->foreign('turbine_id')->references('id')->on('turbines')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');

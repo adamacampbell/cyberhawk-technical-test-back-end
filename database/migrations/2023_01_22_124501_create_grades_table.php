@@ -15,12 +15,15 @@ return new class extends Migration
     {
         Schema::create('grades', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('inspection_id');
             $table->foreign('inspection_id')->references('id')->on('inspections')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+            $table->unsignedBigInteger('component_id');
             $table->foreign('component_id')->references('id')->on('components')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+            $table->unsignedBigInteger('grade_type_id');
             $table->foreign('grade_type_id')->references('id')->on('grade_types')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
