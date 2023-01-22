@@ -15,9 +15,15 @@ return new class extends Migration
     {
         Schema::create('grades', function (Blueprint $table) {
             $table->id();
-            $table->integer('inspection_id');
-            $table->integer('component_id');
-            $table->integer('grade_type_id');
+            $table->foreign('inspection_id')->references('id')->on('inspections')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->foreign('component_id')->references('id')->on('components')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->foreign('grade_type_id')->references('id')->on('grade_types')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -15,8 +15,12 @@ return new class extends Migration
     {
         Schema::create('components', function (Blueprint $table) {
             $table->id();
-            $table->integer('component_type_id');
-            $table->integer('turbine_id');
+            $table->foreign('component_type_id')->references('id')->on('component_types')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->foreign('turbine_id')->references('id')->on('turbines')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

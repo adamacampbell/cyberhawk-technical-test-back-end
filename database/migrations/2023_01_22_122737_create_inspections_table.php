@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('inspections', function (Blueprint $table) {
             $table->id();
-            $table->integer('turbine_id');
+            $table->foreign('turbine_id')->references('id')->on('turbines')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->dateTime('inspected_at');
             $table->timestamps();
         });
