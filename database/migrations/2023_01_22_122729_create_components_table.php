@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('components', function (Blueprint $table) {
             $table->id();
+            $table->integer('component_type_id');
+            $table->integer('turbine_id');
             $table->timestamps();
         });
     }
