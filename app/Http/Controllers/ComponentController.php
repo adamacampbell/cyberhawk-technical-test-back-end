@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Component;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Component;
 use App\Http\Requests\StoreComponentRequest;
 use App\Http\Requests\UpdateComponentRequest;
+use App\Models\Grade;
 
 class ComponentController extends Controller
 {
@@ -15,7 +18,7 @@ class ComponentController extends Controller
      */
     public function index()
     {
-        //
+        return Component::all();
     }
 
     /**
@@ -47,7 +50,7 @@ class ComponentController extends Controller
      */
     public function show(Component $component)
     {
-        //
+        $component;
     }
 
     /**
@@ -82,5 +85,29 @@ class ComponentController extends Controller
     public function destroy(Component $component)
     {
         //
+    }
+
+    /**
+     * Get grades based on component ID
+     * 
+     * @param Illuminate\Http\Request $componentID
+     * @return \Illuminate\Http\Response
+     */
+    public function getGrades(Request $request) {
+        $component = Component::find($request->componentID);
+        return $component->grades;
+    }
+
+    /**
+     * Get grades based on component and Grade ID
+     * 
+     * @param Illuminate\Http\Request $componentID
+     * @param Illuminate\Http\Request $gradeID
+     * @return \Illuminate\Http\Response
+     */
+    public function getGrade(Request $request) {
+        $component = Component::find($request->componentID);
+        $gradeId = $request->gradeID;
+        return $component->grades->where('id', $gradeId);
     }
 }

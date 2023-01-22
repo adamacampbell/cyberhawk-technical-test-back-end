@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\GradeType;
+use App\Models\GradeType;
 use App\Http\Requests\StoreGradeTypeRequest;
 use App\Http\Requests\UpdateGradeTypeRequest;
 
@@ -15,7 +15,7 @@ class GradeTypeController extends Controller
      */
     public function index()
     {
-        //
+        return GradeType::all();
     }
 
     /**
@@ -47,7 +47,7 @@ class GradeTypeController extends Controller
      */
     public function show(GradeType $gradeType)
     {
-        //
+        return $gradeType;
     }
 
     /**

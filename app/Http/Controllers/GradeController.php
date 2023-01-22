@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Grade;
+use App\Models\Grade;
 use App\Http\Requests\StoreGradeRequest;
 use App\Http\Requests\UpdateGradeRequest;
 
@@ -15,7 +15,7 @@ class GradeController extends Controller
      */
     public function index()
     {
-        //
+        return Grade::all();
     }
 
     /**
@@ -47,7 +47,7 @@ class GradeController extends Controller
      */
     public function show(Grade $grade)
     {
-        //
+        return $grade;
     }
 
     /**

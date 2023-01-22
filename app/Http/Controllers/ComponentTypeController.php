@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\ComponentType;
+use App\Models\ComponentType;
 use App\Http\Requests\StoreComponentTypeRequest;
 use App\Http\Requests\UpdateComponentTypeRequest;
 
@@ -15,7 +15,7 @@ class ComponentTypeController extends Controller
      */
     public function index()
     {
-        //
+        return ComponentType::all();
     }
 
     /**
@@ -47,7 +47,7 @@ class ComponentTypeController extends Controller
      */
     public function show(ComponentType $componentType)
     {
-        //
+        return $componentType;
     }
 
     /**
