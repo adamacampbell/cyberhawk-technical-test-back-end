@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Farm;
+use App\Models\Farm;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreFarmRequest;
 use App\Http\Requests\UpdateFarmRequest;
+use App\Models\Turbine;
 
 class FarmController extends Controller
 {
@@ -15,7 +18,7 @@ class FarmController extends Controller
      */
     public function index()
     {
-        //
+        return Farm::all();
     }
 
     /**
@@ -47,7 +50,7 @@ class FarmController extends Controller
      */
     public function show(Farm $farm)
     {
-        //
+        return $farm;
     }
 
     /**
@@ -82,5 +85,31 @@ class FarmController extends Controller
     public function destroy(Farm $farm)
     {
         //
+    }
+
+    /**
+     * Get all turbines belonging to farm
+     * 
+     * @param Illuminate\Http\Request $farmID
+     * @return \Illuminate\Http\Response
+     */
+    public function getTurbines(Request $request)
+    {
+        $farm = Farm::find($request->farmID);
+        return $farm->turbines;
+    }
+
+    /**
+     * Get turbine based on Farm and Turbine ID
+     * 
+     * @param Illuminate\Http\Request $farmID
+     * @param Illuminate\Http\Request $turbineID
+     * @return \Illuminate\Http\Response
+     */
+    public function getTurbine(Request $request) {
+        $farmId = $request->farmID;
+        $farm = Farm::find($farmId);
+        $turbineId = $request->turbineID;
+        return $farm->turbines->where('id', $turbineId);
     }
 }
